@@ -16,4 +16,7 @@
     config: Lưu trữ những cài đặt, phiên bản
     .env: secret information
 
-5) section 5) Register with json webtoken
+5) section 5: Register with json webtoken
+    1) Why we use apikey?
+        1) check auth, limit anonymous traffic, check permission
+    disadvantage: check database per request => use redis
