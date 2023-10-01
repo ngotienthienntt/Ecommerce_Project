@@ -7,7 +7,6 @@ class KeyToken {
             const tokens =  await keyTokenModel.create({
                 user: userId,
                 publicKey,
-                privateKey
             })
 
             return tokens ? tokens.publicKey: null;

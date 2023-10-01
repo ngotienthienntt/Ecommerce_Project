@@ -19,10 +19,10 @@
         require: true,
      },
 
-     privateKey: {
-      type: String,
-      require: true,
-   },
+   //   privateKey: {
+   //    type: String,
+   //    require: true,
+   // },
 
      refreshToken: {
          type: Array,

@@ -38,21 +38,17 @@ class AccessService {
 
             //step 3 create token
             if(newShop){
-                // const {privateKey, publicKey} = crypto.generateKeyPairSync("rsa",{
-                //     modulusLength: 4096,
-                //     publicKeyEncoding: {
-                //         type: "pkcs1",
-                //         format: "pem"
-                //     },
-                //     privateKeyEncoding: {
-                //         type: "pkcs1",
-                //         format: "pem"
-                //     }
-                // })
-
-                const privateKey = crypto.randomBytes(64).toString('hex');
-                const publicKey = crypto.randomBytes(64).toString('hex');
-
+                const {privateKey, publicKey} = crypto.generateKeyPairSync("rsa",{
+                    modulusLength: 4096,
+                    publicKeyEncoding: {
+                        type: "pkcs1",
+                        format: "pem"
+                    },
+                    privateKeyEncoding: {
+                        type: "pkcs1",
+                        format: "pem"
+                    }
+                })
 
                 console.log({privateKey, publicKey});
 
@@ -69,17 +65,17 @@ class AccessService {
                     }
                 }
 
-                // console.log("publickeystring: ", publicKeyString);
-
-                // const publicKeyObject = crypto.createPublicKey(publicKeyString);
-
-                // console.log("publickeyobject", publicKeyObject);
-                //create token pair
+                // create token pair
+                const privateObjectKey = crypto.createPrivateKey(privateKey);
+                const publicObjectKey = crypto.createPublicKey(publicKey);
 
                 const tokens = await createTokenPair(
-                    { userId: newShop._id, email },
-                    publicKey,
-                    privateKey
+                    { 
+                        userId: newShop._id, 
+                        email 
+                    },
+                    publicObjectKey,
+                    privateObjectKey
                 )
                 console.log("create token: ", tokens);
 
