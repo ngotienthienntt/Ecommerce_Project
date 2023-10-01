@@ -1,0 +1,19 @@
+1) secction 1: introduce
+2) section 2: init folder structure, install package
+    - morgan
+    - helmet
+    - compression
+3) section 3: connect mongo db (7 tips)
+    1) the defect of previous connection
+    2) new version of connection
+    3) Checking how many connection in system
+    4) Notify error when server overload
+    5) Should we disconnect constantly?
+    6) What is poolSize? why is it important?
+    7) What happen if it's over poolSize?
+
+4) section 4: config and .env
+    config: Lưu trữ những cài đặt, phiên bản
+    .env: secret information
+
+5) section 5) Register with json webtoken
