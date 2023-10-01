@@ -20,3 +20,9 @@
     1) Why we use apikey?
         1) check auth, limit anonymous traffic, check permission
     disadvantage: check database per request => use redis
+
+6) section 6: api key- permission
+    1) Why we use apikey
+        - auth, limit anonymous traffic, 
+        - check permission,
+    disadvantage: check db every request => redis
