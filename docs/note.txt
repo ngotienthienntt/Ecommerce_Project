@@ -29,3 +29,7 @@
 
 7) section 7: error handle
     1) create handle in middleware, don't use try catch in every service or controller
+
+8) section 8: success response handle
+    1) create success reponse for ok and created
+    

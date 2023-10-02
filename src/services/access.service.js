@@ -18,10 +18,9 @@ const RoleShop = {
 class AccessService {
     static signUp = async ({ name, email, password }) => {
         //step 1 check email exist
-        a
         const hoderShop = await shopModel.findOne({ email }).lean();
         if (hoderShop) {
-            throw BadRequestError("Error: Shop already exist");
+            throw new BadRequestError("Error: Shop already exist");
         }
 
         //step 2 create account
