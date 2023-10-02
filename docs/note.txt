@@ -26,3 +26,6 @@
         - auth, limit anonymous traffic, 
         - check permission,
     disadvantage: check db every request => redis
+
+7) section 7: error handle
+    1) create handle in middleware, don't use try catch in every service or controller
