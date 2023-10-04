@@ -1,38 +1,43 @@
 'use trict'
 
- //!dmbg
- const {Schema, model, Types} = require('mongoose'); // Erase if already required
+//!dmbg
+const { Schema, model, Types } = require('mongoose'); // Erase if already required
 
- const DOCUMENT_NAME = 'Key'
- const COLLECTION_NAME = 'Keys'
- 
- // Declare the Schema of the Mongo model
- const KeySchema = new Schema({
-     user: {
-        type: Schema.Types.ObjectId,
-        require: true,
-        ref: "Shop"
-     },
+const DOCUMENT_NAME = 'Key'
+const COLLECTION_NAME = 'Keys'
 
-     publicKey: {
-        type: String,
-        require: true,
-     },
-
-     privateKey: {
-      type: String,
-      require: true,
+// Declare the Schema of the Mongo model
+const KeySchema = new Schema({
+   user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "Shop"
    },
 
-     refreshToken: {
-         type: Array,
-         default: [],
-     },
+   publicKey: {
+      type: String,
+      required: true,
+   },
 
- },{
-    timestamps: true,
-    collection: COLLECTION_NAME
- });
- 
- //Export the model
- module.exports = model(DOCUMENT_NAME, KeySchema);
+   privateKey: {
+      type: String,
+      required: true,
+   },
+
+   refreshTokenUsed: {
+      type: Array,
+      default: [],
+   },
+
+   refreshToken: {
+      type: String,
+      required: true
+   }
+
+}, {
+   timestamps: true,
+   collection: COLLECTION_NAME
+});
+
+//Export the model
+module.exports = model(DOCUMENT_NAME, KeySchema);
