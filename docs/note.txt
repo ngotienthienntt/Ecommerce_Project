@@ -37,4 +37,5 @@
     1) check email, password
     2) reset access token, refresh tokens
     3) return data
- 
+10) section 10: logout and authenticaiton
+    1) Authentication

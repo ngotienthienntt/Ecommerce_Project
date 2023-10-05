@@ -41,6 +41,12 @@ class AuthFailureError extends ErrorResponse{
     }
 }
 
+class NotFoundError extends ErrorResponse{
+    constructor(message = ReasonPhrases.NOT_FOUND, status = StatusCodes.NOT_FOUND){
+        super(message, status);
+    }
+}
+
 class ServerError extends ErrorResponse{
     constructor(message = ReasonPhrases.INTERNAL_SERVER_ERROR, status = StatusCodes.INTERNAL_SERVER_ERROR){
         super(message, status);
@@ -52,4 +58,5 @@ module.exports = {
     BadRequestError,
     AuthFailureError,
     ServerError,
+    NotFoundError,
 }
