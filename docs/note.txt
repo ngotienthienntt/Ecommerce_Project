@@ -40,4 +40,6 @@
 10) section 10: logout and authenticaiton
     1) Authentication
 11) handle refresh token
+
+12) scheme product
     
