@@ -18,28 +18,18 @@ const RoleShop = {
 
 class AccessService {
 
-    static handlerRefreshToken = async ( refreshToken) => {
-        //check token đã được sử dụng chưa
-        const foundToken =  await keyTokenService.findByRefreshTokenUsed({refreshToken});
-        if(foundToken){
+    static handlerRefreshToken = async ( { refreshToken, user, keyStore }) => {
+        const { userId, email } = user;
 
-            //decode xem ai
-            const { userId } = await verifyJWT(refreshToken, foundToken.privateKey);
-
-            //xóa tất cả trong key store
+        if(keyStore.refreshTokenUsed.includes(refreshToken)){
             await keyTokenService.deleteKeyById({userId})
-
             throw new ForbiddenError("Something wrong. Please relogin!!!")
         }
 
-        const holderToken = await keyTokenService.findByRefreshToken({refreshToken})
-        if(!holderToken){
-            throw new AuthFailureError("Shop not exist!!! 1")
+        if(keyStore.refreshToken != refreshToken){
+            throw new AuthFailureError("Shop not exist!!!")
         }
 
-        //verify token
-        const { userId, email } = await verifyJWT(refreshToken, holderToken.privateKey);
-        
         const foundShop = await findByEmail({email})
         if(!foundShop){
             throw new AuthFailureError("Shop not exist!!! 2")
@@ -48,12 +38,12 @@ class AccessService {
         //tạo token mới
         const tokens = await createTokenPair(
             { userId: userId, email },
-            holderToken.publicKey,
-            holderToken.privateKey
+            keyStore.publicKey,
+            keyStore.privateKey
         );
 
         //update token
-        await holderToken.updateOne({
+        await keyStore.updateOne({
             $set: {
                 refreshToken: tokens.refreshToken
             },
@@ -64,10 +54,61 @@ class AccessService {
         })
 
         return  {
-            user: {userId, email},
+            user,
             tokens
         }
     }
+
+    // static handlerRefreshToken = async ( refreshToken) => {
+    //     //check token đã được sử dụng chưa
+    //     const foundToken =  await keyTokenService.findByRefreshTokenUsed({refreshToken});
+    //     if(foundToken){
+
+    //         //decode xem ai
+    //         const { userId } = await verifyJWT(refreshToken, foundToken.privateKey);
+
+    //         //xóa tất cả trong key store
+    //         await keyTokenService.deleteKeyById({userId})
+
+    //         throw new ForbiddenError("Something wrong. Please relogin!!!")
+    //     }
+
+    //     const holderToken = await keyTokenService.findByRefreshToken({refreshToken})
+    //     if(!holderToken){
+    //         throw new AuthFailureError("Shop not exist!!! 1")
+    //     }
+
+    //     //verify token
+    //     const { userId, email } = await verifyJWT(refreshToken, holderToken.privateKey);
+        
+    //     const foundShop = await findByEmail({email})
+    //     if(!foundShop){
+    //         throw new AuthFailureError("Shop not exist!!! 2")
+    //     }
+
+    //     //tạo token mới
+    //     const tokens = await createTokenPair(
+    //         { userId: userId, email },
+    //         holderToken.publicKey,
+    //         holderToken.privateKey
+    //     );
+
+    //     //update token
+    //     await holderToken.updateOne({
+    //         $set: {
+    //             refreshToken: tokens.refreshToken
+    //         },
+    //         $addToSet: {
+    //             refreshTokenUsed: refreshToken
+    //         }
+
+    //     })
+
+    //     return  {
+    //         user: {userId, email},
+    //         tokens
+    //     }
+    // }
 
     static logout = async ( keyStore) => {
         const delKey = await keyTokenService.removeKeyById(keyStore._id); 
