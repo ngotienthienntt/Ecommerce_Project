@@ -39,8 +39,13 @@
     3) return data
 10) section 10: logout and authenticaiton
     1) Authentication
-11) handle refresh token
+11) section 11: handle refresh token
 
-12) scheme product
+12) section 12: scheme product
     
-13) api-product-factory-pattern
+13) section 13: api-product-factory-pattern
+
+14) section 14: api product-optimze
+
+15) section 15: api product-factory-strategy-partern
+
