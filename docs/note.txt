@@ -49,3 +49,4 @@
 
 15) section 15: api product-factory-strategy-partern
 
+16) section 16: isDraft, isPublish, unPublish
