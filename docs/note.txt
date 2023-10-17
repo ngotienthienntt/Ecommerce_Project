@@ -49,4 +49,6 @@
 
 15) section 15: api product-factory-strategy-partern
 
-16) section 16: isDraft, isPublish, unPublish
+16) section 16: isDraft, isPublish, unPublish, get list draft, get list publish, search product
+
+17) section 17: findOne, findAll, selectdata, unselectData
