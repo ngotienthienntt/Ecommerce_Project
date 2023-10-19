@@ -2,6 +2,7 @@
 const { product, clothing, electronic, furniture } = require("../models/product.model");
 const { BadRequestError } = require("../core/error.response");
 const { updateProductById } = require("../models/repositories/product.repo");
+const { insertInventory } = require("../models/repositories/inventory.repo");
 const { removeUndefineObject, updateNestedObjectParser } = require("../utils");
 
 
@@ -23,7 +24,17 @@ class Product {
     }
 
     async createProduct(product_id){
-        return await product.create({ ...this, _id: product_id});
+        const newProduct = await product.create({ ...this, _id: product_id});
+
+        if(newProduct){
+            await insertInventory({
+                productId: newProduct._id,
+                shopId: this.product_shop,
+                stock: this.product_quantity
+            })
+        }
+
+        return newProduct;
     }
 
     async updateProduct(productId, bodyUpdate){
@@ -92,6 +103,27 @@ class Electronics extends Product {
 
         return newProduct;
     }
+
+    async updateProduct(productId){
+
+        //1. remove null/undefine field, format object
+        const objectParams = removeUndefineObject(this); 
+        //2. check what fields need update
+        if(objectParams.product_attributes){
+            //update child
+            const productAttributesFormat = updateNestedObjectParser(objectParams.product_attributes);
+            await updateProductById({
+                productId, 
+                bodyUpdate: productAttributesFormat,
+                model: electronic
+            })
+        }
+
+        const productFormat = updateNestedObjectParser(objectParams);
+        const updateProduct = await super.updateProduct(productId, productFormat);
+
+        return updateProduct;
+    }
 }
 
 
@@ -111,6 +143,27 @@ class Furniture extends Product {
         }
 
         return newProduct;
+    }
+
+    async updateProduct(productId){
+
+        //1. remove null/undefine field, format object
+        const objectParams = removeUndefineObject(this); 
+        //2. check what fields need update
+        if(objectParams.product_attributes){
+            //update child
+            const productAttributesFormat = updateNestedObjectParser(objectParams.product_attributes);
+            await updateProductById({
+                productId, 
+                bodyUpdate: productAttributesFormat,
+                model: furniture
+            })
+        }
+
+        const productFormat = updateNestedObjectParser(objectParams);
+        const updateProduct = await super.updateProduct(productId, productFormat);
+
+        return updateProduct;
     }
 }
 

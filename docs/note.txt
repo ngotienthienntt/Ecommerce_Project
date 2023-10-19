@@ -60,3 +60,7 @@
 18) section 18: post, put, patch in update product
     - put: update all (create new) Product
     - patch update what you want to update 
+
+19) section 19: inventories(hang ton kho) model vs service
+    ?? add new type of product => edit code => add new type extends from product
+    
