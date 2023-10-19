@@ -26,12 +26,12 @@ class ProductFactory {
         return new productClass(payload).createProduct();
     }
 
-    static async updateProduct(type, payload){
+    static async updateProduct(type, productId, payload){
         const productClass = ProductFactory.productRegistry[type];
-        if(!productClass) throw new BadRequestError("Invalid product type")
-        return new productClass(payload).createProduct();
+        if(!productClass) throw new BadRequestError(`Invalid product type ${type}`)
+        return new productClass(payload).updateProduct(productId);
     }
-
+ 
     static async publishProductByShop({ product_shop,product_id }){
         return await publishProductByShop({ product_shop, product_id })
     }

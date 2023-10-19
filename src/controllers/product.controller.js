@@ -16,6 +16,22 @@ class ProductController{
         }).send(res);
     }
 
+    updateProduct = async (req, res, next) => {
+        const { product_type: productType } = req.body
+        const { productId } = req.params
+        const result = await productService.updateProduct(
+            productType, 
+            productId,
+            {
+                ...req.body,
+                product_shop: req.user.userId
+            });
+        new CREATED({
+            message: "Create product success",
+            metadata: result
+        }).send(res);
+    }
+
     publishProductByShop = async (req, res, next) => {
         const productId = req.params.id || '';
         const result = await productService.publishProductByShop({

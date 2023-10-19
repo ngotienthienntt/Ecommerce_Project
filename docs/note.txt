@@ -42,8 +42,12 @@
 11) section 11: handle refresh token
 
 12) section 12: scheme product
+    Tại sao tạo attribute ở product rồi lại sinh ra schema Clothing để lưu attribute
+        - atribute ở product chỉ lưu 4 field để hiển thị ở ngoài
+        - Clothing sẽ lưu nhiều attribute hơn để hiển thị ở chi tiết
     
 13) section 13: api-product-factory-pattern
+    - add transaction when create product (product + subproduct)
 
 14) section 14: api product-optimze
 
@@ -52,3 +56,7 @@
 16) section 16: isDraft, isPublish, unPublish, get list draft, get list publish, search product
 
 17) section 17: findOne, findAll, selectdata, unselectData
+
+18) section 18: post, put, patch in update product
+    - put: update all (create new) Product
+    - patch update what you want to update 

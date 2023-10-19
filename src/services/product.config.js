@@ -1,6 +1,8 @@
 
 const { product, clothing, electronic, furniture } = require("../models/product.model");
 const { BadRequestError } = require("../core/error.response");
+const { updateProductById } = require("../models/repositories/product.repo");
+const { removeUndefineObject, updateNestedObjectParser } = require("../utils");
 
 
 //create base product class
@@ -23,6 +25,10 @@ class Product {
     async createProduct(product_id){
         return await product.create({ ...this, _id: product_id});
     }
+
+    async updateProduct(productId, bodyUpdate){
+        return await updateProductById({productId, bodyUpdate, model: product})
+    }
 }
 
 //define subclass for different class type clothing
@@ -43,6 +49,27 @@ class Clothing extends Product {
         }
 
         return newProduct;
+    }
+
+    async updateProduct(productId){
+
+        //1. remove null/undefine field, format object
+        const objectParams = removeUndefineObject(this); 
+        //2. check what fields need update
+        if(objectParams.product_attributes){
+            //update child
+            const productAttributesFormat = updateNestedObjectParser(objectParams.product_attributes);
+            await updateProductById({
+                productId, 
+                bodyUpdate: productAttributesFormat,
+                model: clothing
+            })
+        }
+
+        const productFormat = updateNestedObjectParser(objectParams);
+        const updateProduct = await super.updateProduct(productId, productFormat);
+
+        return updateProduct;
     }
 }
 
