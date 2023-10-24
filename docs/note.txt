@@ -73,3 +73,9 @@
     4) Verify discount code [User]
     5) Delete disocunt code [Shop | admin]
     6) Cancel discount code [user]
+
+22) section 22: discount service full
+    1) create discount
+    2) get product by discount code
+    3) get discount by shop
+    4) get discount amount

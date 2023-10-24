@@ -3,7 +3,7 @@ const _ = require("lodash");
 const crypto = require("crypto");
 const { Types } = require("mongoose");
 
-const convertToObjectId = id => Types.ObjectId(id);
+const convertToObjectId = id => new Types.ObjectId(id);
 
 const getInfoData = ({fields = [], object = {}}) => {
     return _.pick(object, fields);

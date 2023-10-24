@@ -19,7 +19,7 @@ const DiscountSchema = new Schema(
         discount_max_uses: { type: Number, required: true}, //max number of discount will be applied
         discount_uses_count: { type: Number, required: true}, //number of discount were used
         discount_user_used: { type: Array, default: []}, //list users applied discount
-        discount_max_use_per_user: { type: Number, required: true}, //
+        discount_max_uses_per_user: { type: Number, required: true}, //
         discount_min_order_value: { type: Number, required: true}, //
         discount_shopId: { type: Schema.Types.ObjectId, ref: "Shop"}, //
         discount_is_active: { type: Boolean, default: true}, //
@@ -34,5 +34,5 @@ const DiscountSchema = new Schema(
 
 //Export the model
 module.exports = {
-    inventory: model(DOCUMENT_NAME, DiscountSchema)
+    discount: model(DOCUMENT_NAME, DiscountSchema)
 };
