@@ -64,3 +64,12 @@
 19) section 19: inventories(hang ton kho) model vs service
     ?? add new type of product => edit code => add new type extends from product
     
+20) section 20 + 21: discount models
+
+21) section 21: discount service
+    1/ Generate discount code [Shop | Admin]
+    2) Get discount amount [User]
+    3) Get all discount code [User | Shop]
+    4) Verify discount code [User]
+    5) Delete disocunt code [Shop | admin]
+    6) Cancel discount code [user]
