@@ -79,3 +79,14 @@
     2) get product by discount code
     3) get discount by shop
     4) get discount amount
+
+    how to delete use(filed is delete and save in backup db)
+
+23) section 23: cart service part 1
+    1) add product to card[User]
+    2) reduce product to [User]
+    3) increase quantity of product in card[User]
+    4) Get list product from card[User]
+    5) delete cart[User]
+    6) delete item in card[User]
+
