@@ -3,7 +3,7 @@
 const { NotFoundError } = require("../../core/error.response");
 const { product, electronic, clothing, furniture} = require("../product.model");
 const { Types } = require("mongoose");
-const { getSelectData, getUnSelectData } = require("../../utils/index");
+const { getSelectData, getUnSelectData, convertToObjectId } = require("../../utils/index");
 
 const findAllDraftsForShop = async ({ query, limit, skip}) => {
     return await queryProduct({ query, limit, skip});
@@ -102,6 +102,10 @@ const queryProduct = async ({ query, limit, skip}) => {
                 .sort({updateAt: -1}).skip(skip).limit(limit).lean();
 }
 
+const getProductById = async (productId) => {
+    return await product.findOne({_id: convertToObjectId(productId)});
+}
+
 module.exports = {
     findAllDraftsForShop,
     findAllPublishsForShop,
@@ -110,5 +114,6 @@ module.exports = {
     searchProductByUser,
     findAllProducts,
     findProduct,
-    updateProductById
+    updateProductById,
+    getProductById
 }

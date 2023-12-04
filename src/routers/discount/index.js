@@ -9,11 +9,9 @@ const { authenticationV2 } =  require("../../auth/authUtils")
 router.post("/amount", asyncHandler(discountController.getDiscountAmount));
 router.get("/list-product-code", asyncHandler(discountController.getAllDiscountCodeWithProduct));
 
-
 //authentication
 router.use(authenticationV2);
 ////
-
 router.post("", asyncHandler(discountController.createDiscountCode));
 router.get("", asyncHandler(discountController.getAllDiscountCodeByShop));
 

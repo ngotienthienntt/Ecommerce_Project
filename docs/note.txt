@@ -90,3 +90,9 @@
     5) delete cart[User]
     6) delete item in card[User]
 
+24) section 24: cart service part 2
+    2) reduce product to [User]
+    3) increase quantity of product in card[User]
+    4) Get list product from card[User]
+    5) delete cart[User]
+    6) delete item in card[User]
