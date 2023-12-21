@@ -14,10 +14,17 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+
+//test redis
+require("./tests/inventory.test")
+const productTest = require("./tests/product.test");
+productTest.purchaseProduct("product:001", 10)
+
 // app.use(morgan("combined"));
 
 //init db
 require("./dbs/init.mongodb");
+
 // checkOverload();
 
 //init router

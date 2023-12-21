@@ -9,6 +9,32 @@ const insertInventory = async ({ productId, shopId, stock, location }) => {
     })
 }
 
+const reservationInventory = async ({productId, quantity, cartId}) => {
+    const query = {
+        inven_productId: conertToObjectMOndodb(productId),
+        inven_stock: {$gte: quantity}
+    },
+    updateSet = {
+        $inc: {
+            inven_stock: -quantity
+        },
+        $push: {
+            inven_reservation: {
+                quantity,
+                cartId,
+                createOn: new Date()
+            }
+        }
+    },
+    options = {
+        upsert: true,
+        new: true
+    }
+
+    return await inventory.updateOne(query, updateSet, options)
+}
+
 module.exports = {
-    insertInventory
+    insertInventory,
+    reservationInventory
 }

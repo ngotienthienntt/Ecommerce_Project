@@ -45,6 +45,24 @@ class CartService {
         return await cartModel.findOneAndUpdate(query, updateSet, options)
     }
 
+    static async addNewProductInCart({userId, product}){
+        const query = {
+            cart_userId: userId,
+            cart_state: "active"
+        },
+        updateSet = {
+            $push: {
+                "cart_products": product,
+            }
+        },
+        options = {
+            upsert: true,
+            new:true
+        }
+
+        return await cartModel.findOneAndUpdate(query, updateSet, options)
+    }
+
     static async addToCart({ userId, product = {}}){
         const userCart = await cartModel.findOne({
             cart_userId: userId,
@@ -62,9 +80,14 @@ class CartService {
 
             return await userCart.save();
         }
-
+        const cartProducts = userCart.cart_products;
+        const foundProduct = cartProducts.find(e => e.productId == product.productId );
         //cart with product
-        return await this.updateUserCartQuantity({userId, product});
+        if(foundProduct){
+            return await this.updateUserCartQuantity({userId, product});
+        }else {
+            return await this.addNewProductInCart({ userId, product});
+        }
 
     }
 
