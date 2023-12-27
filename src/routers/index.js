@@ -14,6 +14,7 @@ router.use("/v1/api/inventory", require("./inventory"));
 router.use("/v1/api/auth", require("./access"));
 router.use("/v1/api/product", require("./product"));
 router.use("/v1/api/discount", require("./discount"));
+router.use("/v1/api/comment", require("./comment"));
 router.use("/v1/api/cart", require("./cart"));
 
 module.exports = router;

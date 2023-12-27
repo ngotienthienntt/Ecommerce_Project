@@ -1,0 +1,251 @@
+[{
+  "_id": {
+    "$oid": "658bd205de6a6c1a74f76c1b"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1",
+  "comment_left": 1,
+  "comment_right": 22,
+  "comment_parentId": null,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:28:05.195Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd227de6a6c1a74f76c20"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.1",
+  "comment_left": 2,
+  "comment_right": 9,
+  "comment_parentId": {
+    "$oid": "658bd205de6a6c1a74f76c1b"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:28:39.150Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd22ede6a6c1a74f76c27"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2",
+  "comment_left": 10,
+  "comment_right": 21,
+  "comment_parentId": {
+    "$oid": "658bd205de6a6c1a74f76c1b"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:28:46.220Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd24bde6a6c1a74f76c2e"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2.1",
+  "comment_left": 11,
+  "comment_right": 16,
+  "comment_parentId": {
+    "$oid": "658bd22ede6a6c1a74f76c27"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:29:16.003Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd250de6a6c1a74f76c35"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2.2",
+  "comment_left": 17,
+  "comment_right": 18,
+  "comment_parentId": {
+    "$oid": "658bd22ede6a6c1a74f76c27"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:29:20.182Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd254de6a6c1a74f76c3c"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2.3",
+  "comment_left": 19,
+  "comment_right": 20,
+  "comment_parentId": {
+    "$oid": "658bd22ede6a6c1a74f76c27"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:29:24.992Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd271de6a6c1a74f76c43"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2.1.1",
+  "comment_left": 12,
+  "comment_right": 13,
+  "comment_parentId": {
+    "$oid": "658bd24bde6a6c1a74f76c2e"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:29:53.722Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd27cde6a6c1a74f76c4a"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.2.1.2",
+  "comment_left": 14,
+  "comment_right": 15,
+  "comment_parentId": {
+    "$oid": "658bd24bde6a6c1a74f76c2e"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:30:04.518Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd2a6de6a6c1a74f76c51"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.1.1",
+  "comment_left": 3,
+  "comment_right": 8,
+  "comment_parentId": {
+    "$oid": "658bd227de6a6c1a74f76c20"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:30:46.924Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd2b8de6a6c1a74f76c58"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.1.1.1",
+  "comment_left": 4,
+  "comment_right": 5,
+  "comment_parentId": {
+    "$oid": "658bd2a6de6a6c1a74f76c51"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:31:04.101Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:04.101Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658bd2c0de6a6c1a74f76c5f"
+  },
+  "comment_productId": {
+    "$oid": "6578140dabdad424deec2ac0"
+  },
+  "comment_userId": 1002,
+  "comment_content": "Comment 1.1.1.2",
+  "comment_left": 6,
+  "comment_right": 7,
+  "comment_parentId": {
+    "$oid": "658bd2a6de6a6c1a74f76c51"
+  },
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2023-12-27T07:31:12.870Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-27T07:31:12.870Z"
+  },
+  "__v": 0
+}]

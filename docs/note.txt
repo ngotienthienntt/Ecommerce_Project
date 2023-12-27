@@ -96,3 +96,9 @@
     4) Get list product from card[User]
     5) delete cart[User]
     6) delete item in card[User]
+
+38 + 39) section 38: nested comment
+    1) add comment (User, Shop)
+    2) get a list of comment (User, shop)
+    3) delete comment (user, shop, admin)
+    
