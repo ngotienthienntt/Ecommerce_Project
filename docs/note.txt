@@ -102,3 +102,40 @@
     2) get a list of comment (User, shop)
     3) delete comment (user, shop, admin)
     
+
+40) section 40: notification 
+    1) Send notification -> 1.000.000 user?
+        - seperate into part(Message queue)
+            Message queue 1: 1-100.000
+            Message queue 2: 100.001 - 200.000
+            .......
+        - nếu userid is not integer _> hash bawnm nó ra
+    2) What would you do to reduce the missing Message (lost data)?
+    3) How to ignore duplicate message?
+    4) HOw to build data to seperate service and load?
+    5) How to ensure the order of message queue?
+    6) How to resolve when the message is too much
+
+41) section 41: notification - pull, push pattern (lưu trữ notification trong database)
+    1) một số cách khắc phục khi insert or find large data
+        - use index in database
+        - panigation
+        - aync
+        - phân tán dữ liệu trên nhiều note 
+        - cache
+    2) Difficulties with too many User and Notifications
+            - push
+                ưu: được gửi đến tất cả user
+                nhược điểm:- công việc lớn trong 1 lần
+            - pull
+                ưu: chỉ có user đăng nhập với được lấy
+                nhược: 
+                        - request nhiều lần
+    => kết hợp cả 2push 
+        pull: ít khi ghé
+        push: dành cho vip(cả pull), thường xuyên ghé
+
+42) section 42: implement notification on shopDEv
+    - 2 stage: 
+        + design structure
+        + use third party(firebase to send noti)

@@ -4,6 +4,7 @@ const { BadRequestError } = require("../core/error.response");
 const { updateProductById } = require("../models/repositories/product.repo");
 const { insertInventory } = require("../models/repositories/inventory.repo");
 const { removeUndefineObject, updateNestedObjectParser } = require("../utils");
+const { pustNotiToSystem } = require("./notification.service");
 
 
 //create base product class
@@ -33,6 +34,17 @@ class Product {
                 stock: this.product_quantity
             })
         }
+
+        pustNotiToSystem({
+            type: "SHOP-001",
+            receivedId: 1,
+            senderId: this.product_shop,
+            options: {
+                product_name: this.product_name,
+                product_shop: this.product_shop
+            }
+        }).then(rs => console.log(rs))
+        .catch(error => console.log(error));
 
         return newProduct;
     }
