@@ -143,3 +143,7 @@
 43) section 43: kafka (tốc độ hơn 2 lần)
 
 44) section 44: rabbit mq (ổn định và quen thuộc hơn so với kafka)
+
+
+32+33) logger discord
+45+46) Microservice

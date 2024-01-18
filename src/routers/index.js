@@ -2,12 +2,16 @@
 const express = require('express');
 const router = express.Router();
 const { apiKey, permission } = require("../auth/checkAuth");
+const { pushToLogDiscord } = require("../middlewares")
 
 
 //1. check apikey
 router.use(apiKey)
 //2. check permission
 router.use(permission("0000"))
+
+//3. add log
+router.use(pushToLogDiscord)
 
 router.use("/v1/api/checkout", require("./checkout"));
 router.use("/v1/api/inventory", require("./inventory"));

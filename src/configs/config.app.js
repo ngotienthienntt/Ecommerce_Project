@@ -24,6 +24,10 @@ const dev = {
     },
     redis: {
         url: process.env.DEV_REDIS_URI
+    },
+    discord: {
+        channel_id: process.env.DEV_CHANNEL_ID_DISCORD,
+        token: process.env.DEV_TOKEN_DISCORD
     }
 }
 
@@ -38,6 +42,10 @@ const pro = {
     },
     redis: {
         url: process.env.PRO_REDIS_URI
+    },
+    discord: {
+        channel_id: process.env.PRO_CHANNEL_ID_DISCORD,
+        token: process.env.PRO_TOKEN_DISCORD
     }
 }
 
