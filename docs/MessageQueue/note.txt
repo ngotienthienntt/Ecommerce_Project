@@ -1,0 +1,2 @@
+DDL: error happen in server
+TTL: server died
