@@ -147,3 +147,8 @@
 
 32+33) logger discord
 45+46) Microservice
+
+49 + 50) handle message queue TTL + Error LOGIC
+
+51) ordering messsage in pub/sub or queue
+52+53+54) ordered message
