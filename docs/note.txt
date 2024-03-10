@@ -152,3 +152,9 @@
 
 51) ordering messsage in pub/sub or queue
 52+53+54) ordered message
+
+
+64)
+65)
+66)
+67) AWS
